@@ -30,6 +30,10 @@ npm install --save react-native-searchable-dropdown
 	   <td>dropdown items</td>
    </tr>
 	<tr>
+	   <td>value</td>
+	   <td>Current saved value of field</td>
+   </tr>
+	<tr>
 	   <td>defaultIndex</td>
 	   <td>Default selected index of items. (optional)</td>
    </tr>
