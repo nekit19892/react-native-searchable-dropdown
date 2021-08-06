@@ -137,7 +137,7 @@ export default class SearchableDropDown extends Component {
           onPress={() => {
             this.setState({ item: item });
             setTimeout(() => {
-              this.props.onItemSelect({ item: item, index: index });
+              this.props.onItemSelect({ item: item, index: item.id });
             }, 0);
           }}
           style={{ ...this.props.itemStyle, flex: 1, flexDirection: 'row' }}>
@@ -155,7 +155,8 @@ export default class SearchableDropDown extends Component {
             this.setState({ item: item, focus: false });
             Keyboard.dismiss();
             setTimeout(() => {
-              this.props.onItemSelect({ item: item, index: index });
+              console.log('items', item)
+              this.props.onItemSelect({ item: item, index: item.id });
               if (this.props.resetValue) {
                 this.setState({ focus: true, item: defaultItemValue });
                 this.input.focus();
@@ -163,8 +164,8 @@ export default class SearchableDropDown extends Component {
             }, 0);
           }}>
           {this.props.selectedItems &&
-          this.props.selectedItems.length > 0 &&
-          this.props.selectedItems.find(x => x.id === item.id) ? (
+            this.props.selectedItems.length > 0 &&
+            this.props.selectedItems.find(x => x.id === item.id) ? (
             <Text style={{ ...this.props.itemTextStyle }}>{item.name}</Text>
           ) : (
             <Text style={{ ...this.props.itemTextStyle }}>{item.name}</Text>
@@ -212,8 +213,8 @@ export default class SearchableDropDown extends Component {
         val: this.state.item
           ? this.state.item
           : this.props.defaultIndex
-          ? this.props.items[this.props.defaultIndex].name
-          : '',
+            ? this.props.items[this.props.defaultIndex].name
+            : '',
       },
       {
         key: 'style',
