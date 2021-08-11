@@ -211,7 +211,7 @@ export default class SearchableDropDown extends Component {
       {
         key: 'value',
         val: this.state.item
-          ? this.state.item
+          ? this.state.item.name
           : this.props.defaultIndex
             ? this.props.items[this.props.defaultIndex].name
             : '',
@@ -244,6 +244,7 @@ export default class SearchableDropDown extends Component {
     });
     return (
       <>
+        {console.log('this.props.textInputProps', textInputProps)}
         <TextInput
           {...textInputProps}
           onBlur={e => {
