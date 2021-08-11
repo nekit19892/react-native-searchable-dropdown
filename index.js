@@ -155,7 +155,6 @@ export default class SearchableDropDown extends Component {
             this.setState({ item: item, focus: false });
             Keyboard.dismiss();
             setTimeout(() => {
-              console.log('items', item)
               this.props.onItemSelect({ item: item, index: item.id });
               if (this.props.resetValue) {
                 this.setState({ focus: true, item: defaultItemValue });
@@ -244,7 +243,6 @@ export default class SearchableDropDown extends Component {
     });
     return (
       <>
-        {console.log('this.props.textInputProps', textInputProps)}
         <TextInput
           {...textInputProps}
           onBlur={e => {
